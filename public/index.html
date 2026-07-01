@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,viewport-fit=cover">
+  <title>咪咕音乐视宣号标准版</title>
+  <script src="https://hz.migu.cn/order/pub-ui/js/and/migus.js"></script>
+  <script src="https://hz.migu.cn/order/pub-ui/js/and/openMusicSDK.js"></script>
+  <!-- Amber web SDK - 异步加载 js文件 -->
+  <script type="application/javascript">
+    var _mgds = _mgds || [];
+    window._mgds = _mgds;
+    (function(){
+          var etm = 1 * Date.now();
+          _mgds.push(['_enterTime', etm]);
+          _mgds.push(['_accountId', 'qyzx1022154c4fdea401de693c00ec47']);  //渠道唯一标识（即Amber appkey）
+          _mgds.push(['_isInBrowser', 'true']); //true：标识页面不是内嵌App中的页面，页面通过浏览器访问，此时不会尝试和APP通信，即在浏览器或者在没有集成客户端（ios） SDK的APP时此项设置为true，ios内嵌H5直接走web方式，不再尝试与ios native通信；false：标识页面是内嵌App中的页面，即通过APP访问，此时会尝试和APP通信，同时页面也可以运行在浏览器中。
+          _mgds.push(['_inAppIsUpload', 'false']);
+          //_mgds.push(["_uploadUrl", "http://117.135.165.39:8088/udcc/qyWebData.html"]); //测试环境
+          _mgds.push(["_uploadUrl", "https://uem.migu.cn:18088/udcc/qyWebData.html"]); //生产环境
+
+          (function() {
+              var vds = document.createElement('script');
+              vds.type='text/javascript';
+              vds.async = true;
+              //vds.src = 'http://117.135.165.39:8088/uemjs/xk/amber-web-sdk-min.js'; //测试环境
+              vds.src = 'https://ambersdk.migu.cn/uemjs/xk/amber-web-sdk-min.js'; //生产环境
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(vds, s);
+          })();
+      })();
+  </script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type='text/javascript'>
+      (function(window, document, script, src, namespace) {
+          window[namespace] = window[namespace] || function() {
+              (window[namespace].q = window[namespace].q || []).push(arguments)
+          }
+          ;
+          script = document.createElement('script');
+          let tag = document.getElementsByTagName('script')[0];
+          script.async = true;
+          script.src = src;
+          console.log("tag", tag)
+          console.log("script", script)
+          tag.parentNode.insertBefore(script, tag);
+      }
+      )(window, document, 'script', './static/gdp-full.js', 'gdp');
+  </script>
+</body>
+
+</html>
