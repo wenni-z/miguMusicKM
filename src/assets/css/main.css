@@ -82,7 +82,7 @@ input {
 /* van-tabs */
 .custom-tab-container {
   position: absolute;
-  top: 54vw;
+  top: 50vw;
   left: 5vw;
   width: 90vw; 
   height: 73.15vw;
@@ -207,7 +207,7 @@ video::-webkit-media-controls {
 
 .bottom-link {
   position: absolute;
-  bottom: 10vw;
+  bottom: 83vw;
   left: 13vw;
   width: 76vw;
   height: 15vw;
@@ -243,7 +243,7 @@ video::-webkit-media-controls {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 128.3vw;
+  top: 155.3vw;
 }
 
 .row-box-left {
@@ -258,13 +258,13 @@ video::-webkit-media-controls {
   width: 78.47vw;
   height: 14vw;
   /* padding: 2.666667vw 6.666667vw; */
-  /* background-color: #fff; */
-  /* border: 1px solid darkcyan; */
-  /* border-radius: 5vw; */
+  background-color: #fff;
+  border: 1px solid darkcyan;
+  border-radius: 5vw;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  margin-bottom: 5.8vw;
+  margin-bottom: 5vw;
 }
 
 .input_number input {
@@ -325,7 +325,7 @@ video::-webkit-media-controls {
   border-radius: 1.16vw;
   overflow-y: auto;
   position: absolute;
-  top: 185.5vw;
+  top: 210.5vw;
   font-size: 3.5vw;
 }
 
@@ -738,4 +738,12 @@ video::-webkit-media-controls {
   float: right;
   margin-top: 3px;
   margin-right: 10px;
+}
+
+.qzvideoLink {
+  position: absolute;
+  width: 21vw;
+  height: 5vw;
+  top: 140.5vw;
+  left: 13vw;
 }

@@ -25,7 +25,8 @@
       </div>
     </div>
 
-    <div class="custom-tab-container">
+    <!-- 首页tab展示 - Old -->
+    <!-- <div class="custom-tab-container">
       <img
         class="van-titile-img"
         :src="
@@ -42,7 +43,7 @@
         :title-active-color="'transparent'"
         :title-inactive-color="'transparent'"
       >
-        <!-- Tab 1 热门圈子彩铃 -->
+        Tab 1 热门圈子彩铃
         <van-tab>
           <template #title></template>
           <div class="tab-content">
@@ -66,7 +67,7 @@
           </div>
         </van-tab>
 
-        <!-- Tab 2 视宣号商户中心 -->
+        Tab 2 视宣号商户中心
         <van-tab>
           <template #title></template>
           <div class="tab-content">
@@ -77,8 +78,8 @@
           </div>
         </van-tab>
 
-        <!-- Tab 3 视频彩铃权益 -->
-        <!-- <van-tab>
+        Tab 3 视频彩铃权益 - Archived
+        <van-tab>
           <template #title></template>
           <div class="tab-content">
             <img src="../assets/images/nav3-content.png" />
@@ -86,9 +87,12 @@
               <img src="../assets/images/enter-btn1.png" alt="" class="btn" />
             </router-link>
           </div>
-        </van-tab> -->
+        </van-tab>
       </van-tabs>
-    </div>
+    </div> -->
+
+    <!-- 热门商户彩铃入口 -->
+    <router-link class="qzvideoLink" to="/qzvideo"></router-link>
 
     <a class="bottom-link" href="https://sxh.migu.cn/qysch/" ></a>
 
@@ -295,7 +299,8 @@
     <div class="rules-container">
       1．“咪咕音乐视宣号标准版”目前仅支持<b>中国移动</b>用户（不含港澳台）订购，资费<b>30元/月</b>，通过<b>话费</b>收取，<b>订购立即生效，退订立即失效</b>，退订的次月起不再收费。
       <br>2．该业务可享专区页面使用模板或上传短视频制作店铺专属视频彩铃、彩印(网内2000条/月)、挂机短信(50条/月)等权益。<span>（注：专区页面可通过微信服务号“咪咕视宣号-订购服务-商户中心”、微信公众号“铃音多多-酷美视宣-热门圈子彩铃”进入。）</span>
-      <br>3．订购该业务时，为具备业务生效所需的功能支持，将为您<b>同步开通</b>0元的视频彩铃功能，如已开通则不会重复开通。同步开通的视频彩铃功能，开通立即生效，退订立即失效（部分省份退订次月生效，具体以所属省份实际规定为准）；如不退订，资费将保持0元/月。
+      <!-- <br>3．订购该业务时，为具备业务生效所需的功能支持，将为您<b>同步开通</b>0元的视频彩铃功能，如已开通则不会重复开通。同步开通的视频彩铃功能，开通立即生效，退订立即失效（部分省份退订次月生效，具体以所属省份实际规定为准）；如不退订，资费将保持0元/月。 -->
+      <br>3．截至2026年12月31日24:00，通过此页面订购该业务的用户，在业务保持订购期间，可每月领取1张50元充电电费抵用券。进入“咪咕音乐App-我的-全部（页面中部四个方块图标）-权益中心”，输入订购业务手机号码和验证码即可进行领取，领取有效期为当月有效，领取时若已退订咪咕视宣号标准版，则无法领取。领取成功后，2小时内到账对应手机号码的特来电账号，使用有效期为30天，从到账当天开始计算。可通过“特来电App-我的或特来电小程序-我的”查看和使用。
       <br>4．资费有效期3年（36个自然月），如双方在有效期届满前无异议，有效期自动续展，每次续展3年；有效期内变更/退订/销户/携转，无需承担相应的违约责任。
       <br>5．订购该业务后，进入<span>微信服务号“咪咕视宣号-订购服务-商户中心”，</span>用订购业务手机号码登录后使用业务权益。使用“挂机短信”和“彩印”权益时，需根据提示开通0元的“企业彩印-主被叫彩印体验版”，如已开通则不会重复开通；开通立即生效，退订立即失效；如不退订，资费将保持不变。<span>（注：①部分省份退订次月生效，</span>具体以所属省份实际规定为准。<span>②浙江地区用户暂不支持挂机短信、彩印服务）。</span>
       <br>6．使用该业务权益制作的店铺专属视频彩铃时长需在<b>7-48秒</b>以内，彩铃名称及内容不能有涉及宗教、违法、违规、色情、反动、敏感、不文明用语、危害公共安全、不清晰、有噪音、无声音或某段无声音，视频画面倒置等情况，上传的彩铃名称及内容会于<b>30分钟</b>内完成审核，审核通过后方可设置生效。审核结果可通过微信服务号“咪咕视宣号-订购服务-商户中心-宣发视频”查看。<span>（注：目前暂不支持制作设
@@ -373,7 +378,8 @@
             <p>
               1．“咪咕音乐视宣号标准版”目前仅支持<b>中国移动</b>用户（不含港澳台）订购，资费<b>30元/月</b>，通过<b>话费</b>收取，<b>订购立即生效，退订立即失效</b>，退订的次月起不再收费。
               <br>2．该业务可享专区页面使用模板或上传短视频制作店铺专属视频彩铃、彩印(网内2000条/月)、挂机短信(50条/月)等权益。<span>（注：专区页面可通过微信服务号“咪咕视宣号-订购服务-商户中心”、微信公众号“铃音多多-酷美视宣-热门圈子彩铃”进入。）</span>
-              <br>3．订购该业务时，为具备业务生效所需的功能支持，将为您<b>同步开通</b>0元的视频彩铃功能，如已开通则不会重复开通。同步开通的视频彩铃功能，开通立即生效，退订立即失效（部分省份退订次月生效，具体以所属省份实际规定为准）；如不退订，资费将保持0元/月。
+              <!-- <br>3．订购该业务时，为具备业务生效所需的功能支持，将为您<b>同步开通</b>0元的视频彩铃功能，如已开通则不会重复开通。同步开通的视频彩铃功能，开通立即生效，退订立即失效（部分省份退订次月生效，具体以所属省份实际规定为准）；如不退订，资费将保持0元/月。 -->
+              <br>3．截至2026年12月31日24:00，通过此页面订购该业务的用户，在业务保持订购期间，可每月领取1张50元充电电费抵用券。进入“咪咕音乐App-我的-全部（页面中部四个方块图标）-权益中心”，输入订购业务手机号码和验证码即可进行领取，领取有效期为当月有效，领取时若已退订咪咕视宣号标准版，则无法领取。领取成功后，2小时内到账对应手机号码的特来电账号，使用有效期为30天，从到账当天开始计算。可通过“特来电App-我的或特来电小程序-我的”查看和使用。
               <br>4．资费有效期3年（36个自然月），如双方在有效期届满前无异议，有效期自动续展，每次续展3年；有效期内变更/退订/销户/携转，无需承担相应的违约责任。
               <br>5．订购该业务后，进入<span>微信服务号“咪咕视宣号-订购服务-商户中心”，</span>用订购业务手机号码登录后使用业务权益。使用“挂机短信”和“彩印”权益时，需根据提示开通0元的“企业彩印-主被叫彩印体验版”，如已开通则不会重复开通；开通立即生效，退订立即失效；如不退订，资费将保持不变。<span>（注：①部分省份退订次月生效，</span>具体以所属省份实际规定为准。<span>②浙江地区用户暂不支持挂机短信、彩印服务）。</span>
               <br>6．使用该业务权益制作的店铺专属视频彩铃时长需在<b>7-48秒</b>以内，彩铃名称及内容不能有涉及宗教、违法、违规、色情、反动、敏感、不文明用语、危害公共安全、不清晰、有噪音、无声音或某段无声音，视频画面倒置等情况，上传的彩铃名称及内容会于<b>30分钟</b>内完成审核，审核通过后方可设置生效。审核结果可通过微信服务号“咪咕视宣号-订购服务-商户中心-宣发视频”查看。<span>（注：目前暂不支持制作设
@@ -880,14 +886,17 @@ export default {
           console.log("queryPreCheck: " + response.result.resMsg);
           return "1";
         } else {
-          // console.error("[queryPreCheck] Invalid response structure", response);
-          // let msg = response.message || (response.result && response.result.resMsg) || 'queryPreCheck操作失败';
-          // this.mToast(msg);
           console.error("[queryPreCheck] Invalid response structure", response);
-          this.mToast(response.message || response.result.resMsg || 'queryPreCheck操作失败');
+          var errMessage = "";
+          if ((response.result && response.result.resMsg)) {
+            errMessage = response.result.resMsg
+          } else {
+            errMessage = response.message
+          }
+          this.mToast(errMessage);
           // GdpTracker
           this.bussinessProcessingData.processType_var = "办理失败";
-          this.bussinessProcessingData.errorMessage_var = response.result.resMsg;
+          this.bussinessProcessingData.errorMessage_var = errMessage;
           window.gdp(
             "track",
             "professional_merchants_bussinessProcessing",
