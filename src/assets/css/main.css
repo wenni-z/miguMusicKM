@@ -144,6 +144,7 @@ video::-webkit-media-controls {
   display: flex !important;
 }
 
+/* tab内video thumnail */
 .video-thumbnail {
   position: absolute;
   top: 9vw;
@@ -151,6 +152,21 @@ video::-webkit-media-controls {
   width: 23.44vw;
   height: 42vw;
   cursor: pointer;
+}
+
+/* 首页独立video thumnail */
+.video-thumbnail-front {
+    position: absolute;
+    top: 48vw;
+    left: 29vw;
+    width: 42vw;
+    height: 72vw;
+    cursor: pointer;
+}
+
+.main .video-thumbnail-front img {
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .play-btn {

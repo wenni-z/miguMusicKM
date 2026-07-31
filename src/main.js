@@ -12,7 +12,7 @@ import store from './store/index'
 import mixin from './mixins/mixin'
 //import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
-import 'swiper/dist/css/swiper.css'
+// import 'swiper/dist/css/swiper.css'
 import {
   Popup
 } from 'vant'

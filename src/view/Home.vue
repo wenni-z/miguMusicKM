@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <!-- 首页tab展示 - Old -->
+    <!-- 首页tab展示 - Old 替换成以下视频展示-->
     <!-- <div class="custom-tab-container">
       <img
         class="van-titile-img"
@@ -86,6 +86,23 @@
         </van-tab>
       </van-tabs>
     </div> -->
+
+    <div class="video-thumbnail-front" @click="playVideo">
+      <div style="position: relative; height: 100%;">
+        <img
+          src="../assets/images/preThumbnail.png"
+          style="
+            border-radius: 5vw;
+            padding: 2vw;
+          "
+        />
+        <img
+          src="../assets/images/phone-screen.png"
+          style="position: absolute; top: 0; left: 0;"
+        />
+        <img src="../assets/images/play-btn.png" class="play-btn" />
+      </div>
+    </div>
 
     <!-- 热门商户彩铃入口 -->
     <router-link class="qzvideoLink" to="/qzvideo"></router-link>
