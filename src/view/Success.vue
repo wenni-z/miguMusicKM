@@ -4,6 +4,19 @@
     <div class="success-content flex">
       <div class="go-top" @click="openMiguLink()"></div>
 
+      <img
+        src="../assets/images/mgapp-icon.jpg"
+        alt=""
+        style="position: absolute; z-index: 9; left: 1vw; top: 60vw; width: 11vw"
+        @click="redirectToMiguDownload()"
+      />
+      <img
+        src="../assets/images/tuiding.png"
+        alt=""
+        style="position: absolute; z-index: 9; right: 1vw; top: 60vw; width: 11vw"
+        @click="showTuiding = true"
+      />
+
       <!-- <div>
         <div class="flex">
           <div class="video-grid-custom">
@@ -40,7 +53,11 @@
         </div>
       </div>
 
-      <div class="kefu" @click="callPhone()"></div>
+      <div class="kefu" @click="qyqylq()"></div>
+
+      <div class="linkBox" @click="qyqylq()"></div>
+
+      <div class="linkBox2" @click="downLoadApk()"></div>
 
       <!-- 视频展示 -->
       <!-- <div class="section-wrapper">
@@ -58,6 +75,40 @@
           </div>
         </div>
       </div> -->
+
+      <!-- 退订输入弹框 -->
+      <div v-if="showTuiding" @touchmove.prevent @mousewheel.prevent>
+        <div class="rw-mask"></div>
+        <div class="tuiding-mask" style="z-index: 999">
+          <div
+            style="
+              background: rgb(255, 255, 255);
+              border-radius: 2.56vw;
+              color: rgb(0, 0, 0);
+              text-align: center;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              margin-top: 3.72vw;
+            "
+          >
+            <b style="font-size: 4vw;">您正在退订业务</b>
+            <div class="input_number">
+              <input
+                type="number"
+                v-model="mobile"
+                class="inputdiv input"
+                placeholder="请输入您的移动手机号"
+                maxlength="11"
+              />
+            </div>
+            <div style="margin: 3.72vw; display: flex">
+              <button @click="showTuiding = false">取消</button>
+              <button @click="cancelOrder()" style="background-color: #1989fa" id="confirmTD">确认</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div v-if="successPop" class="mask">
         <div class="mask-wrapper">
@@ -84,6 +135,7 @@ export default {
   },
   data() {
     return {
+      apkUrl: "https://d.musicapp.migu.cn/upload/fbpt_rsync_apps/local/signed/MobileMusic7611/MobileMusic7611_014782K_20260128162625126.apk",
       successPop: true,
       mobile: "",
       token: '',
@@ -92,6 +144,7 @@ export default {
       showTips: false, // 展示视彩开通指引
       showLoading: true, // 控制进度条动图的显示
       showVideos: false, // 控制用户自定义视频展示的显示
+      showTuiding: false, // 退订弹框
       preVideo: {
           src: require("@/assets/videos/preVideo.mp4"),
           thumbnail: require("@/assets/images/preThumbnail.png"),
@@ -128,12 +181,31 @@ export default {
       window.location.href =
         "https://sxh.migu.cn/qysch/";
     },
+    redirectToMiguDownload() {
+      // 跳转到咪咕下载页面
+      window.location.href = "https://music.migu.cn/v3/app/h5";
+    },
+    qyqylq() {
+      // 跳转到企业权益领取页面
+      window.location.href = "https://h5.nf.migu.cn/app/v4/n/rights-center/index.html?cfrom=cxtzzx_0029_bfb#/";
+    },
+    downLoadApk() {
+      var e = document.createElement("a");
+      e.href = this.apkUrl,
+      e.download = "MobileMusic7611.apk",
+      document.body.appendChild(e),
+      e.click(),
+      document.body.removeChild(e)
+    },
     callPhone() {
       window.location.href = "tel:4006163810";
     },
     setVrbtId(vrbtId) {
       this.currentVrbtId = vrbtId;
       this.showInput = true;
+    },
+    fetchData() {
+      window.openMiGuInit(this.channelCode,'window.initBackFun','paramdialog1','','','common2',''); 
     },
     // 点击设置事件
     async checkAndSet() {
@@ -279,6 +351,40 @@ export default {
     ringPolicyBackFun(result) {
       console.log("miguVrbtPolicy:" + JSON.stringify(result));
     },
+    // 退订
+    async cancelOrder() {
+      if (!this.mobile) {
+        this.mToast("请输入手机号");
+        return false;
+      }
+
+      var reg = /^1[3|4|5|7|8|9][0-9]{9}$/;
+      if (!reg.test(this.mobile)) {
+        this.mToast("您输入手机号格式不正确");
+        return false;
+      }
+
+      try {
+        this.token = await this.getToken();
+        this.cancel(this.token);
+      } catch (err) {
+        console.error("cancelOrder流程出错:", err.message);
+      }
+    },
+    // 退订
+    cancel(token) {
+      // console.log("cancel:" + token);
+      var data = {
+        youCallbackName: "window.cancelBackFun",
+        channelCode: this.channelCode,
+        token: token,
+        serviceId: this.serviceId, // 18位业务ID/包月包ID
+        cancelType:"0",
+      };
+      console.log("cancel:" + JSON.stringify(data));
+
+      window.commonCancel(data);
+    },
     removeLocalStorage() {
       localStorage.removeItem("token");
       localStorage.removeItem("channelCode");
@@ -287,7 +393,11 @@ export default {
   },
   mounted() {
     this.channelCode = localStorage.getItem("channelCode");
+    if (!this.channelCode) {
+      this.channelCode = "002129B"; //mg视宣号渠道号
+    }
     this.token = localStorage.getItem("token");
+    this.fetchData();
     window.ringPolicyBackFun = this.ringPolicyBackFun;
     this.setDefaultRing(this.token);
   },
@@ -297,6 +407,9 @@ export default {
 };
 </script>
 
+<style scoped>
+@import "./../assets/css/main.css";
+</style>
 <style scoped>
 .success {
   text-align: center;
@@ -321,6 +434,18 @@ export default {
   top: 112.5vw;
   width: 78vw;
   height: 12vw;
+}
+
+.success .linkBox2, .success .linkBox {
+  position: absolute;
+  top: 133vw;
+  width: 86vw;
+  height: 31vw;
+}
+
+.success .linkBox2 {
+  top: 178vw;
+  height: 26vw;
 }
 
 .showTips-entry {

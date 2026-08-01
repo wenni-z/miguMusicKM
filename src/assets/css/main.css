@@ -223,7 +223,7 @@ video::-webkit-media-controls {
 
 .bottom-link {
   position: absolute;
-  bottom: 83vw;
+  bottom: 87vw;
   left: 13vw;
   width: 76vw;
   height: 15vw;
@@ -259,7 +259,7 @@ video::-webkit-media-controls {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 155.3vw;
+  top: 168.3vw;
 }
 
 .row-box-left {
@@ -337,22 +337,24 @@ video::-webkit-media-controls {
 /* rules */
 .rules-container {
   /* border: 1px solid sandybrown; */
-  margin: 4.65vw 7vw;
-  border-radius: 1.16vw;
+  /* margin: 4.65vw 7vw;
+  border-radius: 1.16vw; */
   overflow-y: auto;
-  position: absolute;
-  top: 210.5vw;
+  /* position: absolute;
+  top: 230.5vw; */
   font-size: 3.5vw;
+  background-image: url('../images/content-bg.png');
+  background-size: 100% 100%;
 }
 
 .rules-container span {
   color: blue;
 }
 
-.rules-container b {
+/* .rules-container b {
   color: red;
   font-weight: 400;
-}
+} */
 /* rules */
 
 .video-grid {
@@ -442,7 +444,7 @@ video::-webkit-media-controls {
 .file-agree-box {
   width: 80%;
   margin: 0 auto;
-  margin-top: 3vw;
+  margin-top: 5vw;
   font-size: 3.26vw;
   line-height: 4.5vw;
   display: flex;
@@ -711,6 +713,12 @@ video::-webkit-media-controls {
   backface-visibility: hidden;
   transition: .3s;
   transition-property: transform, opacity, -webkit-transform;
+}
+
+.tuiding-mask .input_number {
+    width: 82%;
+    margin: 2vw;
+    height: 12vw;
 }
 
 .tuiding-mask button {
