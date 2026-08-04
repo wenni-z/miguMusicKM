@@ -52,7 +52,7 @@ input {
   width: .6rem;
   height: 2.2rem;
   right: 0;
-  top: 2.9rem;
+  top: 13vw;
   /* background: url('../images/rule-btn.png') no-repeat;
   background-size: 100% 100%; */
   cursor: pointer;
@@ -157,10 +157,10 @@ video::-webkit-media-controls {
 /* 首页独立video thumnail */
 .video-thumbnail-front {
     position: absolute;
-    top: 48vw;
-    left: 29vw;
-    width: 42vw;
-    height: 72vw;
+    top: 30vw;
+    left: 30vw;
+    width: 44vw;
+    height: 77vw;
     cursor: pointer;
 }
 
@@ -222,11 +222,11 @@ video::-webkit-media-controls {
 /* van-tabs */
 
 .bottom-link {
-  position: absolute;
-  bottom: 87vw;
-  left: 13vw;
-  width: 76vw;
-  height: 15vw;
+    position: absolute;
+    bottom: 94vw;
+    left: 13vw;
+    width: 79vw;
+    height: 15vw;
 }
 
 /* input container */
@@ -259,7 +259,7 @@ video::-webkit-media-controls {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 168.3vw;
+  top: 161.3vw;
 }
 
 .row-box-left {
@@ -765,9 +765,9 @@ video::-webkit-media-controls {
 }
 
 .qzvideoLink {
-  position: absolute;
-  width: 21vw;
-  height: 5vw;
-  top: 140.5vw;
-  left: 13vw;
+    position: absolute;
+    width: 21vw;
+    height: 6vw;
+    top: 130.5vw;
+    left: 11vw;
 }

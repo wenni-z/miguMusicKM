@@ -2,7 +2,9 @@
   <div class="success">
     <img src="@/assets/images/success-bg.png" alt="" />
     <div class="success-content flex">
-      <div class="go-top" @click="openMiguLink()"></div>
+      <div class="go-top" @click="openMiguLink()">
+        <img src="../assets/images/shzx-btn.png">
+      </div>
 
       <img
         src="../assets/images/mgapp-icon.jpg"
@@ -39,7 +41,7 @@
         </p>
       </div> -->
 
-      <div class="showTips-entry" @click="showTips = true"></div>
+      <!-- <div class="showTips-entry" @click="showTips = true"></div> -->
 
       <div v-if="showTips" class="popUp">
         <h2>视频彩铃功能开通指引</h2>
@@ -53,7 +55,9 @@
         </div>
       </div>
 
-      <div class="kefu" @click="qyqylq()"></div>
+      <div class="kefu" @click="qyqylq()">
+        <img src="../assets/images/qyqy-btn.png">
+      </div>
 
       <div class="linkBox" @click="qyqylq()"></div>
 
@@ -422,30 +426,51 @@ export default {
 }
 
 .go-top {
-  position: absolute;
-  top: 17vw;
-  left: 13vw;
-  width: 76vw;
-  height: 15vw;
+    position: absolute;
+    top: 44vw;
+    left: 13vw;
+    width: 76vw;
+    height: 12vw;
+    -webkit-animation: btnShow-data-v-5d1ca652 1.2s infinite linear;
+    animation: btnShow-data-v-5d1ca652 1.2s infinite linear;
 }
 
 .success .kefu {
   position: absolute;
-  top: 112.5vw;
-  width: 78vw;
+  top: 120.5vw;
+  width: 76vw;
   height: 12vw;
+  -webkit-animation: btnShow 1.2s infinite linear;
+  animation: btnShow 1.2s infinite linear;
+}
+
+@keyframes btnShow {
+  0% {
+    -webkit-transform: scale(.95);
+    transform: scale(.95);
+  }
+
+  50% {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+
+  100% {
+    -webkit-transform: scale(.95);
+    transform: scale(.95);
+  }
 }
 
 .success .linkBox2, .success .linkBox {
-  position: absolute;
-  top: 133vw;
-  width: 86vw;
-  height: 31vw;
+    position: absolute;
+    top: 143vw;
+    width: 84vw;
+    height: 33vw;
 }
 
 .success .linkBox2 {
-  top: 178vw;
-  height: 26vw;
+  top: 191vw;
+  /* height: 26vw; */
 }
 
 .showTips-entry {
