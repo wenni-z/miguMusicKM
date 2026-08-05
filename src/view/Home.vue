@@ -106,6 +106,9 @@
     <!-- 热门商户彩铃入口 -->
     <router-link class="qzvideoLink" to="/qzvideo"></router-link>
 
+    <!-- 咪咕权益中心入口 -->
+    <div class="rightsCenter" @click="openMgRightsCenter()"></div>
+
     <a class="bottom-link" href="https://sxh.migu.cn/qysch/" ></a>
 
     <div class="rule-btn" @click="showProductRule = true"></div>
@@ -591,7 +594,7 @@
 // import VideoPlayer from "@/components/VideoPlayer.vue";
 // import axios from "axios";
 import CryptoJS from 'crypto-js';
-import { Tab, Tabs } from "vant";
+import { Divider, Tab, Tabs } from "vant";
 import encryptionMixin from "../assets/js/encryptionMixin";
 export default {
   name: "Home",
@@ -680,6 +683,30 @@ export default {
     redirectToMiguDownload() {
       // 跳转到咪咕下载页面
       window.location.href = "https://music.migu.cn/v3/app/h5";
+    },
+    async openMgRightsCenter() {
+      try {
+        if (!this.mobile) {
+          this.mToast("请先订购页面，再领取权益，谢谢。");
+          return;
+        }
+        // 1. 先获取token
+        this.token = await this.getToken();
+        if (!this.token) {
+          return;
+        }
+        // 2. 查询订购包月状态
+        const orderStatus = await this.queryOrder(this.token);
+        if (!orderStatus) {
+          return;
+        } else if (orderStatus === "0") { //0已订购 1未订购，已订购才能跳转到权益中心
+          window.location.href = "https://h5.nf.migu.cn/app/v4/n/rights-center/index.html?cfrom=cxtzzx_0029_bfb";
+        } else {  // 未订购，提示先订购
+          this.mToast("请先订购页面，再领取权益，谢谢。");
+        }
+      } catch (err) {
+        this.mToast("openMgRightsCenter流程出错:", err.message);
+      }
     },
     playVideo() {
       this.preVideoState.showFullscreenVideo = true;

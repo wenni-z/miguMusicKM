@@ -764,10 +764,15 @@ video::-webkit-media-controls {
   margin-right: 10px;
 }
 
-.qzvideoLink {
-    position: absolute;
-    width: 21vw;
-    height: 6vw;
-    top: 130.5vw;
-    left: 11vw;
+.qzvideoLink, .rightsCenter {
+  position: absolute;
+  width: 35vw;
+  height: 15vw;
+  top: 122vw;
+  left: 11vw;
+}
+
+.rightsCenter {
+  right: 11vw;
+  left: auto;
 }

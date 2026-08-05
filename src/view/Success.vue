@@ -114,19 +114,6 @@
         </div>
       </div>
 
-      <div v-if="successPop" class="mask">
-        <div class="mask-wrapper">
-          <h2>开通成功</h2>
-          <div class="content">
-            您已成功订购咪咕音乐视宣号标准版，并设置《老板发财》视频彩铃，立即生效。
-          </div>
-          <router-link class="determine" to="/qzvideo">
-            查看视频彩铃
-          </router-link>
-          <div class="mask-close" @click="successPop = false"></div>
-        </div>
-      </div>
-
     </div>
   </div>
 </template>
@@ -140,7 +127,6 @@ export default {
   data() {
     return {
       apkUrl: "https://d.musicapp.migu.cn/upload/fbpt_rsync_apps/local/signed/MobileMusic7611/MobileMusic7611_014782K_20260128162625126.apk",
-      successPop: true,
       mobile: "",
       token: '',
       channelCode: '',
@@ -389,6 +375,21 @@ export default {
 
       window.commonCancel(data);
     },
+    initBackFun(result) {
+      console.log(JSON.stringify(result));
+      if (result.resultCode !== "0000") {
+        this.mToast("初始化错误" + JSON.stringify(result));
+        return;
+      }
+    },
+    cancelBackFun(result) {
+      console.log(result.resCode);
+      if ("" + result.resCode === "000000") {
+        this.mToast("退订成功", true);
+      } else {
+        this.mToast("退订失败: " + JSON.stringify(result.resMsg));
+      }
+    },
     removeLocalStorage() {
       localStorage.removeItem("token");
       localStorage.removeItem("channelCode");
@@ -402,8 +403,10 @@ export default {
     }
     this.token = localStorage.getItem("token");
     this.fetchData();
+    window.initBackFun = this.initBackFun;
+    window.cancelBackFun = this.cancelBackFun;
     window.ringPolicyBackFun = this.ringPolicyBackFun;
-    this.setDefaultRing(this.token);
+    // this.setDefaultRing(this.token);
   },
   beforeUnmount() {
     this.removeLocalStorage();
@@ -425,7 +428,7 @@ export default {
   width: 100%;
 }
 
-.go-top {
+.success .go-top, .success .kefu {
     position: absolute;
     top: 44vw;
     left: 13vw;
@@ -436,12 +439,7 @@ export default {
 }
 
 .success .kefu {
-  position: absolute;
   top: 120.5vw;
-  width: 76vw;
-  height: 12vw;
-  -webkit-animation: btnShow 1.2s infinite linear;
-  animation: btnShow 1.2s infinite linear;
 }
 
 @keyframes btnShow {
